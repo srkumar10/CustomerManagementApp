@@ -161,9 +161,13 @@
             <value n="custom" v="false"/>
             <value n="name" v="Default"/>
             <hash n="oracle.jdevimpl.runner.debug.DebugConfiguration">
-               <value n="promptForRemoteDebugging" v="false"/>
+               <value n="promptForRemoteDebugging" v="true"/>
+               <value n="remoteParameter:SOACommon:hostname" v="orasoa12.techlabs.local"/>
+               <value n="remoteParameter:SOACommon:port" v="8003"/>
                <value n="remoteProtocol" v="SOACommon"/>
             </hash>
+            <value n="remoteDebuggingProfiling" v="true"/>
+            <url n="runDirectoryURL" path="."/>
             <url n="targetURL" path="servicebus.sboverview"/>
          </hash>
       </hash>
