@@ -1,0 +1,36 @@
+<testElement>
+   <orders xmlns="urn:xyzbank:cust:schema:order">
+      <account_id>account_id10</account_id>
+      <instrument_code>instrument_code11</instrument_code>
+      <order_action>120.72</order_action>
+      <order_giver>order_giver13</order_giver>
+      <order_taker>order_taker14</order_taker>
+      <exchange>exchange15</exchange>
+      <price>160.73</price>
+      <price_currency_code>price_currency_code17</price_currency_code>
+      <price_method>price_method18</price_method>
+      <quantity>190.73</quantity>
+      <date_created>2016-08-30</date_created>
+      <brokerage_amount>200.73</brokerage_amount>
+      <brokerage_code>brokerage_code21</brokerage_code>
+      <brokerage_percent>220.73</brokerage_percent>
+      <contract_note_comment>contract_note_comment23</contract_note_comment>
+   </orders>
+   <orders xmlns="urn:xyzbank:cust:schema:order">
+      <account_id>account_id24</account_id>
+      <instrument_code>instrument_code25</instrument_code>
+      <order_action>260.73</order_action>
+      <order_giver>order_giver27</order_giver>
+      <order_taker>order_taker28</order_taker>
+      <exchange>exchange29</exchange>
+      <price>300.73</price>
+      <price_currency_code>price_currency_code31</price_currency_code>
+      <price_method>price_method32</price_method>
+      <quantity>330.72</quantity>
+      <date_created>2016-08-30</date_created>
+      <brokerage_amount>340.72</brokerage_amount>
+      <brokerage_code>brokerage_code35</brokerage_code>
+      <brokerage_percent>360.72</brokerage_percent>
+      <contract_note_comment>contract_note_comment37</contract_note_comment>
+   </orders>
+</testElement>

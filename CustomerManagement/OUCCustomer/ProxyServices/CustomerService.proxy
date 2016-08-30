@@ -14,7 +14,14 @@
         </ser:binding>
         <oper:operations enabled="true"/>
         <ser:ws-policy>
-            <ser:binding-mode>no-policies</ser:binding-mode>
+            <ser:binding-mode>owsm-policy-bindings</ser:binding-mode>
+            <ser:owsm-policy-metadata>
+                <orawsp:wsm-assembly xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy">
+                    <sca11:policySet name="policySet" appliesTo="PROXY-SERVICE()" attachTo="PROXY-SERVICE('.')" orawsp:highId="1" xml:id="PROXY-SERVICE__PROXY-SERVICE_____" xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912">
+                        <wsp:PolicyReference DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc" URI="oracle/wss_username_token_service_policy" orawsp:status="enabled" orawsp:id="1" xmlns:wsp="http://www.w3.org/ns/ws-policy"/>
+                    </sca11:policySet>
+                </orawsp:wsm-assembly>
+            </ser:owsm-policy-metadata>
         </ser:ws-policy>
         <ser:invoke ref="OUCCustomer/Pipelines/CustomerPSPipeline" xsi:type="con:PipelineRef" xmlns:con="http://www.bea.com/wli/sb/pipeline/config"/>
         <ser:xqConfiguration>
@@ -25,7 +32,7 @@
         <tran:provider-id>http</tran:provider-id>
         <tran:inbound>true</tran:inbound>
         <tran:URI>
-            <env:value>/entity/CustomerService</env:value>
+            <env:value>/entity/customerservice</env:value>
         </tran:URI>
         <tran:inbound-properties/>
         <tran:provider-specific xsi:type="http:HttpEndPointConfiguration" xmlns:http="http://www.bea.com/wli/sb/transports/http">

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process name="CustomerMigrationSplitJoin"
+              targetNamespace="http://xmlns.oracle.com/CustomerManagement/OUCCustomer/"
+              xmlns:tns="http://xmlns.oracle.com/CustomerManagement/OUCCustomer/"
+              xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+              xmlns:rescon="http://www.bea.com/alsb/flow/resources/config"
+              xmlns:bea="http://www.bea.com/bpel/ui/extensions"
+              xmlns:ext="http://www.bea.com/bpel/extensions"
+              xmlns:expr="http://www.bea.com/wli/sb/stages/config"
+              xmlns:trf="http://www.bea.com/wli/sb/stages/transform/config"
+              xmlns:bind="http://xmlns.xyzbank.com/wsdl/Customer" 
+              bea:name="CustomerMigrationSplitJoin"
+              rescon:snippetVersion="1.0"
+              xmlns:ns0="http://www.bea.com/wli/sb/reference" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:ns1="urn:xyzbank:cust:wsdl:customer" xmlns:ns2="urn:xyzbank:cust:wsdl:order"
+              xmlns:ns3="urn:xyzbank:cust:wsdl:account">
+    <bpel:partnerLinks>
+        <bpel:partnerLink name="CustomerMigrationSplitJoin" partnerLinkType="tns:CustomerMigrationSplitJoin"
+                          myRole="CustomerMigrationSplitJoin">
+	       </bpel:partnerLink>
+        <bpel:partnerLink name="CustomerServiceBS" partnerLinkType="tns:CustomerServiceBS"
+                          partnerRole="CustomerServiceBS"/>
+        <bpel:partnerLink name="CustomerOrderServiceBS" partnerLinkType="tns:CustomerOrderServiceBS"
+                          partnerRole="CustomerOrderServiceBS"/>
+        <bpel:partnerLink name="CustomerAccountServiceBS" partnerLinkType="tns:CustomerAccountServiceBS"
+                          partnerRole="CustomerAccountServiceBS"/>
+    </bpel:partnerLinks>
+
+	   <bpel:variables>
+        <bpel:variable name="request"
+	                      messageType="bind:CustomerInfoRequest">
+	       </bpel:variable>
+	       <bpel:variable name="response"
+                       messageType="bind:CustomerInfoResponse">
+	       </bpel:variable>
+        <bpel:variable name="CustInfoResp" messageType="ns1:get_customer_resp"/>
+        <bpel:variable name="CustOrderResp" messageType="ns2:get_customer_orders_resp"/>
+        <bpel:variable name="CustAccResp" messageType="ns3:get_customer_accounts_resp"/>
+        <bpel:variable name="faultVar" messageType="bind:GenericFault"/>
+    </bpel:variables>
+    <bpel:faultHandlers>
+        <bpel:catchAll ext:soapFaultVariable="soapFaultVar">
+            <bpel:sequence>
+                <bpel:empty/>
+                <bpel:assign>
+                    <bpel:extensionAssignOperation bea:name="Assign Fault">
+                        <trf:assign varName="faultVar.parameters">
+                            <trf:expr>
+                                <expr:xqueryText>&lt;custinfo:fault_msg xmlns:custinfo="urn:xyzbank:cust:schema:customerinfo"&gt;
+  &lt;custinfo:error_code&gt;XYZ-0009&lt;/custinfo:error_code&gt;
+  &lt;custinfo:error_message&gt;Error in join operation.&lt;/custinfo:error_message&gt;
+&lt;/custinfo:fault_msg&gt;</expr:xqueryText>
+                            </trf:expr>
+                        </trf:assign>
+                    </bpel:extensionAssignOperation>
+                </bpel:assign>
+                <bpel:reply operation="GetCustomerInfo" partnerLink="CustomerMigrationSplitJoin"
+                            faultName="bind:FaultMsg" variable="faultVar"/>
+                <bpel:exit/>
+            </bpel:sequence>
+        </bpel:catchAll>
+    </bpel:faultHandlers>
+    <bpel:sequence>
+        <bpel:receive partnerLink="CustomerMigrationSplitJoin" operation="GetCustomerInfo" variable="request" createInstance="yes">
+	           <rescon:receiveInfo>
+                <rescon:wsdl ref="OUCCustomer/WSDLs/CustMigrationSplitJoin" binding="bind:CustomerInfoServiceBinding"/>
+            </rescon:receiveInfo>
+        </bpel:receive>
+        <bpel:flow>
+            <bpel:scope bea:name="CustomerScope">
+                <bpel:variables>
+                    <bpel:variable name="CustInfoReq" messageType="ns1:get_customer_req"/>
+                </bpel:variables>
+                <bpel:sequence>
+                    <bpel:assign>
+                        <bpel:extensionAssignOperation>
+                            <trf:assign varName="CustInfoReq.payload">
+                                <trf:expr>
+                                    <expr:xqueryText>&lt;urn:customerid_input xmlns:urn="urn:xyzbank:cust:schema:customer"&gt;
+    &lt;customer_id&gt;{$request.parameters/customer_id/text()}&lt;/customer_id&gt;
+&lt;/urn:customerid_input&gt;</expr:xqueryText>
+                                </trf:expr>
+                            </trf:assign>
+                        </bpel:extensionAssignOperation>
+                    </bpel:assign>
+                    <bpel:invoke partnerLink="CustomerServiceBS" operation="get_customer" inputVariable="CustInfoReq"
+                                 outputVariable="CustInfoResp">
+                        <rescon:invokeInfo>
+                            <rescon:service ref="OUCCommon/BusinessServices/CustomerServiceBS"
+                                            xsi:type="ns0:BusinessServiceRef"/>
+                        </rescon:invokeInfo>
+                    </bpel:invoke>
+                </bpel:sequence>
+            </bpel:scope>
+            <bpel:scope bea:name="OrderScope">
+                <bpel:variables>
+                    <bpel:variable name="CustOrderReq" messageType="ns2:get_customer_orders_req"/>
+                </bpel:variables>
+                <bpel:sequence>
+                    <bpel:assign>
+                        <bpel:extensionAssignOperation bea:name="AssignCustOrderReq">
+                            <trf:assign varName="CustOrderReq.parameters">
+                                <trf:expr>
+                                    <expr:xqueryText>&lt;urn:order_input xmlns:urn="urn:xyzbank:cust:schema:order"&gt;
+    &lt;urn:customer_id&gt;{$request.parameters/customer_id/text()}&lt;/urn:customer_id&gt;
+&lt;/urn:order_input&gt;</expr:xqueryText>
+                                </trf:expr>
+                            </trf:assign>
+                        </bpel:extensionAssignOperation>
+                    </bpel:assign>
+                    <bpel:invoke partnerLink="CustomerOrderServiceBS" operation="get_customer_orders"
+                                 inputVariable="CustOrderReq" outputVariable="CustOrderResp">
+                        <rescon:invokeInfo>
+                            <rescon:service ref="OUCCommon/BusinessServices/CustomerOrderServiceBS"
+                                            xsi:type="ns0:BusinessServiceRef"/>
+                        </rescon:invokeInfo>
+                    </bpel:invoke>
+                </bpel:sequence>
+            </bpel:scope>
+            <bpel:scope bea:name="AccountsScope">
+                <bpel:variables>
+                    <bpel:variable name="CustAccReq" messageType="ns3:get_customer_accounts_req"/>
+                </bpel:variables>
+                <bpel:sequence>
+                    <bpel:assign>
+                        <bpel:extensionAssignOperation>
+                            <trf:assign varName="CustAccReq.parameters">
+                                <trf:expr>
+                                    <expr:xqueryText>&lt;urn:account_input xmlns:urn="urn:xyzbank:cust:schema:account"&gt;
+         &lt;urn:customer_id&gt;?&lt;/urn:customer_id&gt;
+&lt;/urn:account_input&gt;</expr:xqueryText>
+                                </trf:expr>
+                            </trf:assign>
+                        </bpel:extensionAssignOperation>
+                    </bpel:assign>
+                    <bpel:invoke partnerLink="CustomerAccountServiceBS" operation="get_customer_accounts"
+                                 inputVariable="CustAccReq" outputVariable="CustAccResp">
+                        <rescon:invokeInfo>
+                            <rescon:service ref="OUCCommon/BusinessServices/CustomerAccountServiceBS"
+                                            xsi:type="ns0:BusinessServiceRef"/>
+                        </rescon:invokeInfo>
+                    </bpel:invoke>
+                </bpel:sequence>
+            </bpel:scope>
+        </bpel:flow>
+        <bpel:assign>
+            <bpel:extensionAssignOperation>
+                <trf:assign varName="response.parameters">
+                    <trf:expr>
+                        <expr:xqueryTransform>
+                            <expr:resource ref="OUCCustomer/XQueries/CustOrderAccountToCustInfo"/>
+                            <expr:param name="varCustomer">
+                                <expr:path>$CustInfoResp.payload</expr:path>
+                            </expr:param>
+                            <expr:param name="varOrders">
+                                <expr:path>$CustOrderResp.parameters</expr:path>
+                            </expr:param>
+                            <expr:param name="varAccount">
+                                <expr:path>$CustAccResp.parameters</expr:path>
+                            </expr:param>
+                        </expr:xqueryTransform>
+                    </trf:expr>
+                </trf:assign>
+            </bpel:extensionAssignOperation>
+        </bpel:assign>
+        <bpel:reply partnerLink="CustomerMigrationSplitJoin" operation="GetCustomerInfo" variable="response"></bpel:reply>
+    </bpel:sequence>
+</bpel:process>

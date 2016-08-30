@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <Customer xmlns="http://xmlns.xyzbank.com/schema/Customer">
    <CustomerID xmlns="">CustomerID1</CustomerID>
    <FirstName xmlns="">FirstName2</FirstName>
    <LastName xmlns="">LastName3</LastName>
    <Email xmlns="">Email4</Email>
    <Phone xmlns="">Phone5</Phone>
-   <DOB xmlns="">2016-06-17</DOB>
+   <DOB xmlns="">2016-08-26</DOB>
    <CustomerType xmlns="">Individual</CustomerType>
    <Address1 xmlns="">Address17</Address1>
    <Address2 xmlns="">Address28</Address2>

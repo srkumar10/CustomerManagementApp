@@ -74,6 +74,7 @@
       <string v="oracle.bm.commonIde.data.project.ModelerProjectSettings/modelersContentSet"/>
       <string v="oracle.tip.tools.ide.ess.addin.ESSContentSetProvider/ess-content"/>
       <string v="oracle.jdeveloper.model.PathsConfiguration/cepContentSet"/>
+      <string v="oracle.bpm.fusion.studio.BPMProjectSettings/bpmProjectsProcessesContentSet"/>
    </list>
    <value n="defaultPackage" v="ouccustomer"/>
    <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
@@ -162,8 +163,8 @@
             <value n="name" v="Default"/>
             <hash n="oracle.jdevimpl.runner.debug.DebugConfiguration">
                <value n="promptForRemoteDebugging" v="true"/>
-               <value n="remoteParameter:SOACommon:hostname" v="localhost"/>
-               <value n="remoteParameter:SOACommon:port" v="7453"/>
+               <value n="remoteParameter:SOACommon:hostname" v="orafmw12.techlabs.com"/>
+               <value n="remoteParameter:SOACommon:port" v="8004"/>
                <value n="remoteProtocol" v="SOACommon"/>
             </hash>
             <value n="remoteDebuggingProfiling" v="true"/>
@@ -203,4 +204,5 @@
          </list>
       </hash>
    </hash>
+   <value n="SOA_TRANSFORMATION_FOLDER_NAME" v="XSLTs/"/>
 </jpr:project>

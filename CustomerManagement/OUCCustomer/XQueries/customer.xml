@@ -1,0 +1,12 @@
+<customer xmlns="urn:xyzbank:cust:schema:customer">
+   <customer_id xmlns="">customer_id1</customer_id>
+   <full_name xmlns="">full_name2</full_name>
+   <customer_type xmlns="">customer_type3</customer_type>
+   <date_of_birth xmlns="">2016-08-30</date_of_birth>
+   <email xmlns="">email4</email>
+   <phone xmlns="">phone5</phone>
+   <addr_line1 xmlns="">addr_line16</addr_line1>
+   <addr_line2 xmlns="">addr_line27</addr_line2>
+   <addr_line3 xmlns="">addr_line38</addr_line3>
+   <addr_line4 xmlns="">addr_line49</addr_line4>
+</customer>

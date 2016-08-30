@@ -1,0 +1,25 @@
+<account_output xmlns="urn:xyzbank:cust:schema:account">
+   <account_id>account_id38</account_id>
+   <account_type>account_type39</account_type>
+   <account_name>account_name40</account_name>
+   <description>description41</description>
+   <investor_type>investor_type42</investor_type>
+   <start_date>2016-08-30</start_date>
+   <brokerage_code>brokerage_code43</brokerage_code>
+   <rebate_code>rebate_code44</rebate_code>
+   <tax_number1>tax_number145</tax_number1>
+   <trading_limit>460.72</trading_limit>
+   <credit_limit>470.72</credit_limit>
+   <account_status>account_status48</account_status>
+   <registration_details>
+      <market_id>market_id49</market_id>
+      <instrument_code>instrument_code50</instrument_code>
+      <description>description51</description>
+      <registration_details1>registration_details152</registration_details1>
+      <registration_details2>registration_details253</registration_details2>
+      <registration_details3>registration_details354</registration_details3>
+      <registration_details4>registration_details455</registration_details4>
+      <postal_code>postal_code56</postal_code>
+      <country_code>country_code57</country_code>
+   </registration_details>
+</account_output>

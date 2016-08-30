@@ -1,60 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
     <dgm:gService name="CustomerService">
-        <dgm:body borderWidth="2" arcRad="20" X="21" Y="100" width="137" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="216" width="137" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="11" Y="93" width="156" height="68">
+        <dgm:shadow arcRad="20" X="11" Y="209" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:outputPort name="CustomerService" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="7" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gService>
-    <dgm:gReference name="AddrValidationServiceBS">
-        <dgm:body borderWidth="2" arcRad="20" X="1098" Y="26" width="136" height="54">
+    <dgm:gReference name="CustomerAccountServiceBS">
+        <dgm:body borderWidth="2" arcRad="20" X="716" Y="26" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="1088" Y="19" width="156" height="68">
+        <dgm:shadow arcRad="20" X="706" Y="19" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
-        <dgm:inputPort name="AddrValidationServiceBS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:inputPort name="CustomerAccountServiceBS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gReference>
+    <dgm:gReference name="CustomerOrderServiceBS">
+        <dgm:body borderWidth="2" arcRad="20" X="716" Y="114" width="136" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="706" Y="107" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="CustomerOrderServiceBS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="14" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="CustomerServiceBS">
-        <dgm:body borderWidth="2" arcRad="20" X="1098" Y="114" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="716" Y="202" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="1088" Y="107" width="156" height="68">
+        <dgm:shadow arcRad="20" X="706" Y="195" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="CustomerServiceBS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="14" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gReference>
-    <dgm:gReference name="UserIDServiceBS">
-        <dgm:body borderWidth="2" arcRad="20" X="1098" Y="202" width="136" height="54">
+    <dgm:gReference name="AddrValidationServiceBS">
+        <dgm:body borderWidth="2" arcRad="20" X="716" Y="290" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="1088" Y="195" width="156" height="68">
+        <dgm:shadow arcRad="20" X="706" Y="283" width="156" height="68">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="AddrValidationServiceBS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="14" Y="4" width="20" height="20"/>
+        <dgm:operations/>
+    </dgm:gReference>
+    <dgm:gReference name="UserIDServiceBS">
+        <dgm:body borderWidth="2" arcRad="20" X="716" Y="378" width="136" height="54">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="706" Y="371" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="UserIDServiceBS" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="14" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gReference>
-    <dgm:gComponent name="CustomerPSPipeline">
-        <dgm:body borderWidth="2" arcRad="20" X="563" Y="85" width="130" height="111">
+    <dgm:gComponent name="CustomerMigrationSplitJoin">
+        <dgm:body borderWidth="2" arcRad="20" X="488" Y="85" width="130" height="111">
+            <dgm:borderColor r="178" g="138" b="53"/>
+            <dgm:lightBgColor r="255" g="226" b="142"/>
+            <dgm:darkBgColor r="255" g="198" b="77"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="478" Y="78" width="150" height="127">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="CustomerAccountServiceBS" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="CustomerOrderServiceBS" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="CustomerServiceBS" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_flow_20x20.gif" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
+    <dgm:gComponent name="CustomerCommonPipeline">
+        <dgm:body borderWidth="2" arcRad="20" X="488" Y="291" width="130" height="111">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="553" Y="78" width="150" height="127">
+        <dgm:shadow arcRad="20" X="478" Y="284" width="150" height="127">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -63,29 +102,106 @@
         <dgm:outputPort name="businessservice.-690063323.UserIDServiceBS" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
+    <dgm:gComponent name="CustomerPSPipeline">
+        <dgm:body borderWidth="2" arcRad="20" X="274" Y="201" width="130" height="161">
+            <dgm:borderColor r="109" g="136" b="65"/>
+            <dgm:lightBgColor r="201" g="224" b="155"/>
+            <dgm:darkBgColor r="157" g="195" b="93"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="264" Y="194" width="150" height="177">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="flow.-841559517.CustomerMigrationSplitJoin" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="businessservice.-690063323.AddrValidationServiceBS" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="businessservice.-690063323.CustomerServiceBS" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="businessservice.-690063323.UserIDServiceBS" X="120" Y="90" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:outputPort name="pipeline.1889374973.CustomerCommonPipeline" X="120" Y="115" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
+        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
+    </dgm:gComponent>
     <dgm:gWireLink source="CustomerService" target="CustomerPSPipeline/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="110" X2="553" Y2="110"/>
+        <dgm:gSegment X1="168" Y1="226" X2="264" Y2="226"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="CustomerMigrationSplitJoin/CustomerAccountServiceBS" target="CustomerAccountServiceBS" width="2">
+        <dgm:gSegment X1="628" Y1="110" X2="652" Y2="110"/>
+        <dgm:gSegment X1="652" Y1="110" X2="652" Y2="36"/>
+        <dgm:gSegment X1="652" Y1="36" X2="706" Y2="36"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="CustomerMigrationSplitJoin/CustomerOrderServiceBS" target="CustomerOrderServiceBS" width="2">
+        <dgm:gSegment X1="628" Y1="135" X2="667" Y2="135"/>
+        <dgm:gSegment X1="667" Y1="135" X2="667" Y2="124"/>
+        <dgm:gSegment X1="667" Y1="124" X2="706" Y2="124"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="CustomerMigrationSplitJoin/CustomerServiceBS" target="CustomerServiceBS" width="2">
+        <dgm:gSegment X1="628" Y1="160" X2="682" Y2="160"/>
+        <dgm:gSegment X1="682" Y1="160" X2="682" Y2="212"/>
+        <dgm:gSegment X1="682" Y1="212" X2="706" Y2="212"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="CustomerCommonPipeline/businessservice.-690063323.AddrValidationServiceBS" target="AddrValidationServiceBS" width="2">
+        <dgm:gSegment X1="628" Y1="316" X2="652" Y2="316"/>
+        <dgm:gSegment X1="652" Y1="316" X2="652" Y2="300"/>
+        <dgm:gSegment X1="652" Y1="300" X2="706" Y2="300"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="CustomerCommonPipeline/businessservice.-690063323.CustomerServiceBS" target="CustomerServiceBS" width="2">
+        <dgm:gSegment X1="628" Y1="341" X2="667" Y2="341"/>
+        <dgm:gSegment X1="667" Y1="341" X2="667" Y2="212"/>
+        <dgm:gSegment X1="667" Y1="212" X2="706" Y2="212"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="CustomerCommonPipeline/businessservice.-690063323.UserIDServiceBS" target="UserIDServiceBS" width="2">
+        <dgm:gSegment X1="628" Y1="366" X2="667" Y2="366"/>
+        <dgm:gSegment X1="667" Y1="366" X2="667" Y2="388"/>
+        <dgm:gSegment X1="667" Y1="388" X2="706" Y2="388"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="CustomerPSPipeline/flow.-841559517.CustomerMigrationSplitJoin" target="CustomerMigrationSplitJoin/__service__" width="2">
+        <dgm:gSegment X1="414" Y1="226" X2="439" Y2="226"/>
+        <dgm:gSegment X1="439" Y1="226" X2="439" Y2="110"/>
+        <dgm:gSegment X1="439" Y1="110" X2="478" Y2="110"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="CustomerPSPipeline/businessservice.-690063323.AddrValidationServiceBS" target="AddrValidationServiceBS" width="2">
-        <dgm:gSegment X1="703" Y1="110" X2="727" Y2="110"/>
-        <dgm:gSegment X1="727" Y1="110" X2="727" Y2="36"/>
-        <dgm:gSegment X1="727" Y1="36" X2="1088" Y2="36"/>
+        <dgm:gSegment X1="414" Y1="251" X2="682" Y2="251"/>
+        <dgm:gSegment X1="682" Y1="251" X2="682" Y2="300"/>
+        <dgm:gSegment X1="682" Y1="300" X2="706" Y2="300"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="CustomerPSPipeline/businessservice.-690063323.CustomerServiceBS" target="CustomerServiceBS" width="2">
-        <dgm:gSegment X1="703" Y1="135" X2="742" Y2="135"/>
-        <dgm:gSegment X1="742" Y1="135" X2="742" Y2="124"/>
-        <dgm:gSegment X1="742" Y1="124" X2="1088" Y2="124"/>
+        <dgm:gSegment X1="414" Y1="276" X2="454" Y2="276"/>
+        <dgm:gSegment X1="454" Y1="276" X2="454" Y2="229"/>
+        <dgm:gSegment X1="454" Y1="229" X2="652" Y2="229"/>
+        <dgm:gSegment X1="652" Y1="229" X2="652" Y2="212"/>
+        <dgm:gSegment X1="652" Y1="212" X2="706" Y2="212"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="CustomerPSPipeline/businessservice.-690063323.UserIDServiceBS" target="UserIDServiceBS" width="2">
-        <dgm:gSegment X1="703" Y1="160" X2="727" Y2="160"/>
-        <dgm:gSegment X1="727" Y1="160" X2="727" Y2="212"/>
-        <dgm:gSegment X1="727" Y1="212" X2="1088" Y2="212"/>
+        <dgm:gSegment X1="414" Y1="301" X2="454" Y2="301"/>
+        <dgm:gSegment X1="454" Y1="301" X2="454" Y2="429"/>
+        <dgm:gSegment X1="454" Y1="429" X2="652" Y2="429"/>
+        <dgm:gSegment X1="652" Y1="429" X2="652" Y2="388"/>
+        <dgm:gSegment X1="652" Y1="388" X2="706" Y2="388"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="CustomerPSPipeline/pipeline.1889374973.CustomerCommonPipeline" target="CustomerCommonPipeline/__service__" width="2">
+        <dgm:gSegment X1="414" Y1="326" X2="439" Y2="326"/>
+        <dgm:gSegment X1="439" Y1="326" X2="439" Y2="316"/>
+        <dgm:gSegment X1="439" Y1="316" X2="478" Y2="316"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
